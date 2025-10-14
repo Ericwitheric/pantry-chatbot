@@ -11,9 +11,10 @@ A chatbot web application that provides quick answers about the UMD Campus Pantr
   - 📍 Location and directions
   - 👤 Eligibility requirements
   - 🎒 What to bring
+  - ⭐ Special limited items (once per week per student)
   - 💼 Student employment opportunities
   - 🤝 Volunteering information
-  - 📦 Donation needs with an expandable full list
+  - 📦 Donation needs with expandable full list
   - 👩‍🍳 Teaching kitchen programs
   - 🍎 Current food availability (via Instagram)
   - 📞 Contact information
@@ -64,12 +65,14 @@ Click any of the quick reference buttons at the top to get instant answers about
 Type your question in the input field and press Enter or click "Send". The bot understands natural language and can answer questions like:
 - "When is the pantry open?"
 - "Can faculty visit on Tuesday?"
+- "What special items are available?"
 - "What items does the pantry need?"
 - "How can I volunteer?"
 - "Are there any jobs available?"
 
 ### Special Features
 - **Staff Hours**: The bot will specifically inform faculty/staff about Monday-only access when they ask about other days
+- **Special Limited Items**: Information about items that are limited to once per week per student (milk, protein, etc.)
 - **Expandable Donations**: Click "...and more!" to see the complete list of needed items
 - **Clickable Links**: Direct links to monetary donations and donation registry
 
@@ -123,6 +126,18 @@ if (question.match(/(your|keywords|here)/)) {
 - **Students**: Monday - Friday, 10 AM - 5 PM
 - **Faculty/Staff**: Mondays only, 10 AM - 5 PM (must register in advance)
 - **Closed**: When the University is closed for holidays and breaks
+
+## ⭐ Special Limited Items
+
+The pantry offers special items that are limited to **once per week per student**:
+- Milk: 1%, Almond, Coconut
+- Vegetable Oil
+- Juice
+- Peanut Butter
+- Corn Flour
+- Protein: Chicken Drumsticks (Halal), Whole Young Chicken, Catfish Nuggets
+
+*Note: These items are subject to change based on availability*
 
 ## ⚠️ Disclaimer
 

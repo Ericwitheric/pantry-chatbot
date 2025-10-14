@@ -28,6 +28,19 @@ const PANTRY_DATA = {
         recommended: ["Reusable bags or backpack to carry items", "List of dietary restrictions if applicable"],
         not_needed: ["No proof of financial need required", "No paperwork needed"]
     },
+
+    special_items: {
+        restriction: "Limited to one per week per student",
+        items: [
+            "Milk: 1%, Almond, Coconut",
+            "Vegetable Oil",
+            "Juice",
+            "Peanut Butter",
+            "Corn Flour",
+            "Protein: Chicken Drumsticks (Halal), Whole Young Chicken, Catfish Nuggets"
+        ],
+        note: "These items are subject to change based on availability"
+    },
     
     volunteer: {
         how_to: "Sign up for one-hour volunteer slots through the Campus Pantry calendar",
@@ -165,6 +178,14 @@ const RESPONSES = {
         <b>Responsibilities:</b> ${PANTRY_DATA.employment.responsibilities}<br><br>
         <b>Prerequisites:</b> ${PANTRY_DATA.employment.prerequisites}<br><br>
         <b>How to Apply:</b> ${PANTRY_DATA.employment.how_to_apply}`;
+    },
+
+    specialItems: () => {
+        return `⭐ <b>Special Items (Limited)</b><br><br>
+        ⚠️ <b>${PANTRY_DATA.special_items.restriction}</b><br><br>
+        <b>Available items:</b><br>
+        • ${PANTRY_DATA.special_items.items.join('<br>• ')}<br><br>
+        <i>📌 ${PANTRY_DATA.special_items.note}</i>`;
     }
 };
 
@@ -190,6 +211,11 @@ function getResponse(input) {
         You must register in advance at go.umd.edu/CampusPantrySignUps.<br>
         Limited to 2 visits per month. Please sign up one day before your visit.<br><br>
         Students can visit Monday to Friday, 10 AM to 5 PM.`;
+    }
+
+    // Special items
+    if (question.match(/(special item|limited item|once per week|weekly limit|milk|protein|chicken|halal|oil|peanut butter|juice)/)) {
+        return RESPONSES.specialItems();
     }
 
     // What food is available
@@ -264,6 +290,7 @@ function getResponse(input) {
     • 📍 Location and directions<br>
     • 👤 Eligibility and requirements<br>
     • 🎒 What to bring<br>
+    • ⭐ Special limited items<br>
     • 💼 Student employment opportunities<br>
     • 🤝 Volunteering opportunities<br>
     • 📦 Donation needs<br>
