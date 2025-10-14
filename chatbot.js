@@ -322,10 +322,18 @@ function getResponse(input) {
             return RESPONSES.volunteer();
         }
 
+        // What to bring (check BEFORE donations to avoid false matches)
+        if (question.match(/\b(what.*(bring|need|required)|should i bring|bring|requirement|required)\b/) &&
+            question.match(/\b(i|me|my|bring|visit|visiting)\b/) &&
+            !question.match(/\bdonat/)) {  // Don't match donation needs
+            Analytics.track('whatToBring');
+            return RESPONSES.whatToBring();
+        }
+
         // Donations (more specific patterns)
-        if (question.match(/\b(donat(e|ion|ions|ing)|give|contribute|contribution)\b/) ||
-            question.match(/\bwhat.*\b(need|needed|want|wanted)\b/) ||
-            question.match(/\b(food drive|monetary|money|financial)\b/)) {
+        if (question.match(/\b(donat(e|ion|ions|ing)|contribute|contribution)\b/) ||
+            question.match(/\bwhat.*(do you|does the pantry|items|food).*(need|needed|want|wanted)\b/) ||
+            question.match(/\b(food drive|monetary|money|financial|give money|give food)\b/)) {
             Analytics.track('donations');
             return RESPONSES.donations();
         }
@@ -335,13 +343,6 @@ function getResponse(input) {
             !question.match(/\bvolunteer\b/)) {  // Don't match "can i volunteer"
             Analytics.track('eligibility');
             return RESPONSES.eligibility();
-        }
-
-        // What to bring
-        if (question.match(/\b(what.*bring|what.*need|requirement|required|bring|uid|id card)\b/) &&
-            !question.match(/\bdonat/)) {  // Don't match donation needs
-            Analytics.track('whatToBring');
-            return RESPONSES.whatToBring();
         }
 
         // Contact
