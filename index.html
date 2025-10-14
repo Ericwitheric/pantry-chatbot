@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terp Pantry Chat Assistant - Unofficial Demo</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <h1>🐢 Terp Pantry Assistant</h1>
+            <p>Quick answers about the UMD Campus Pantry</p>
+        </div>
+        
+        <!-- Important Notice -->
+        <div class="disclaimer">
+            ⚠️ UNOFFICIAL Student Demo | Official info: 
+            <a href="https://dining.umd.edu/sustainability/campus-pantry" target="_blank">
+                dining.umd.edu
+            </a>
+        </div>
+        
+        <!-- Quick Question Buttons -->
+        <div class="quick-buttons">
+            <button onclick="quickAsk('What are the pantry hours?')">
+                📅 Hours
+            </button>
+            <button onclick="quickAsk('Where is the campus pantry located?')">
+                📍 Location
+            </button>
+            <button onclick="quickAsk('Who can use the pantry?')">
+                👤 Eligibility
+            </button>
+            <button onclick="quickAsk('What should I bring?')">
+                🎒 What to Bring
+            </button>
+            <button onclick="quickAsk('How can I volunteer?')">
+                🤝 Volunteer
+            </button>
+            <button onclick="quickAsk('What items are most needed?')">
+                📦 Donations
+            </button>
+        </div>
+        
+        <!-- Chat Area -->
+        <div class="chat-container" id="chatBox">
+            <div class="message bot-message">
+                <div class="message-content">
+                    Hi! I'm here to help answer questions about the UMD Campus Pantry. 
+                    Click a button above or type your question below! 🐢
+                </div>
+            </div>
+        </div>
+        
+        <!-- Input Area -->
+        <div class="input-area">
+            <input 
+                type="text" 
+                id="userInput" 
+                placeholder="Ask me anything about the Campus Pantry..."
+                onkeypress="if(event.key === 'Enter') sendMessage()"
+            >
+            <button onclick="sendMessage()" id="sendBtn">Send</button>
+        </div>
+        
+        <!-- Footer -->
+        <div class="footer">
+            Made by a UMD student to help fellow Terps 🐢 | 
+            <a href="mailto:campuspantry@umd.edu">campuspantry@umd.edu</a>
+        </div>
+    </div>
+       
+    
+    <script src="chatbot.js"></script>
+    
+</body>
+</html>
