@@ -280,7 +280,7 @@ function getResponse(input) {
 
         // Special items (check before general food questions)
         if (question.match(/\b(special item|limited item|weekly limit|weekly restriction)\b/) ||
-            question.match(/\bspecial\b.*\b(food|item|product)\b/) ||
+            question.match(/\bspecial\b.*\b(food|item|product|foods|items|products)\b/) ||
             question.match(/\b(milk|almond milk|coconut milk|vegetable oil|peanut butter|juice|corn flour)\b/) ||
             question.match(/\b(chicken|halal|protein|fish|catfish|drumstick)\b/)) {
             Analytics.track('specialItems');
