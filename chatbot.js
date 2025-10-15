@@ -44,9 +44,10 @@ const PANTRY_DATA = {
     
     volunteer: {
         how_to: "Sign up for one-hour volunteer slots through the Campus Pantry calendar",
+        calendar_link: "https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ1J4IY7zztqV7rNzU_EzqeSCeLEvphSlgZFTY2z2UapAksBQoxu6E7m0xAYwuiHlDgD0cvQY0KR",
         opportunities: [
             "Stocking shelves",
-            "Sorting donations", 
+            "Sorting donations",
             "Helping with distributions",
             "Checking in visitors",
             "Organizing inventory"
@@ -138,6 +139,7 @@ const RESPONSES = {
     volunteer: () => {
         return `🤝 <b>How to Volunteer:</b><br><br>
         ${PANTRY_DATA.volunteer.how_to}<br><br>
+        📅 <b>Sign up here:</b> <a href="${PANTRY_DATA.volunteer.calendar_link}" target="_blank">Campus Pantry Volunteer Calendar</a><br><br>
         <b>Volunteer activities include:</b><br>
         • ${PANTRY_DATA.volunteer.opportunities.join('<br>• ')}<br><br>
         <b>Semester Program:</b> ${PANTRY_DATA.volunteer.terps_for_change}<br><br>
