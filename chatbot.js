@@ -287,7 +287,8 @@ function getResponse(input) {
 
         // What food is currently available (specific to TODAY's items)
         if (question.match(/\bwhat\b.*\b(food|item)\b.*\b(available|there|have|stock|today)\b/) ||
-            question.match(/\b(current|today).*(food|item|stock|inventory)\b/)) {
+            question.match(/\b(current|today).*(food|item|stock|inventory)\b/) ||
+            question.match(/\b(chicken|protein|meat|fish|hala|eggs|egg)\b/)) {
             Analytics.track('foodAvailability');
             return `🍎 <b>Food Availability:</b><br><br>
             To see what food items are currently available at the pantry, please check our Instagram for daily updates!<br><br>
