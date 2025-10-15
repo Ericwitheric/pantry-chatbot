@@ -4,8 +4,9 @@ A chatbot web application that provides quick answers about the UMD Campus Pantr
 
 ## ✨ Features
 
+### **Core Functionality**
 - **Quick Reference Buttons**: Instant access to common questions
-- **Natural Language Processing**: Ask questions in your own words
+- **Natural Language Processing**: Ask questions in your own words with smart pattern matching
 - **Comprehensive Information**:
   - 📅 Pantry hours (separate for students and faculty/staff)
   - 📍 Location and directions
@@ -13,11 +14,22 @@ A chatbot web application that provides quick answers about the UMD Campus Pantr
   - 🎒 What to bring
   - ⭐ Special limited items (once per week per student)
   - 💼 Student employment opportunities
-  - 🤝 Volunteering information
+  - 🤝 Volunteering information with direct calendar signup
   - 📦 Donation needs with expandable full list
   - 👩‍🍳 Teaching kitchen programs
   - 🍎 Current food availability (via Instagram)
   - 📞 Contact information
+
+### **Security & Reliability**
+- **XSS Protection**: Input sanitization to prevent cross-site scripting attacks
+- **Input Validation**: Length limits and character validation
+- **Error Handling**: Comprehensive try-catch blocks for graceful error recovery
+- **Smart Pattern Matching**: Word boundaries to prevent false keyword matches
+
+### **Analytics & Insights**
+- **Usage Tracking**: LocalStorage-based analytics to track question patterns
+- **Topic Analysis**: Breakdown of questions by category with percentages
+- **Demo-Ready Metrics**: View analytics via browser console with `viewAnalytics()`
 
 ## 🚀 Getting Started
 
@@ -44,10 +56,13 @@ Or simply double-click the `index.html` file.
 
 ```
 pantry-chatbot/
-├── index.html      # Main HTML structure
-├── chatbot.js      # Chatbot logic and data
-├── styles.css      # Styling and layout
-└── README.md       # Project documentation
+├── index.html                  # Main HTML structure
+├── chatbot.js                  # Chatbot logic, data, and analytics
+├── styles.css                  # Styling and layout
+├── README.md                   # Project documentation
+├── ANALYTICS_GUIDE.md          # How to use and demo analytics features
+├── IMPROVEMENTS_SUMMARY.md     # Technical improvements documentation
+└── TEST_CASES.md              # Edge case testing scenarios
 ```
 
 ## 🎯 Usage
@@ -71,10 +86,15 @@ Type your question in the input field and press Enter or click "Send". The bot u
 - "Are there any jobs available?"
 
 ### Special Features
-- **Staff Hours**: The bot will specifically inform faculty/staff about Monday-only access when they ask about other days
-- **Special Limited Items**: Information about items that are limited to once per week per student (milk, protein, etc.)
-- **Expandable Donations**: Click "...and more!" to see the complete list of needed items
-- **Clickable Links**: Direct links to monetary donations and donation registry
+- **Staff Hours Detection**: Automatically informs faculty/staff about Monday-only access when they ask about other days
+- **Special Limited Items**: Smart detection for weekly-limited items (milk, chicken, protein, etc.)
+- **Expandable Donations List**: Click "...and more!" to see the complete list of needed items
+- **Direct Action Links**:
+  - Volunteer calendar signup
+  - Monetary donation portal
+  - Donation registry
+  - Instagram for current food availability
+- **Context-Aware Responses**: Distinguishes between "What do I need to bring?" vs "What items do you need?"
 
 ## 🎨 Customization
 
@@ -116,10 +136,11 @@ if (question.match(/(your|keywords|here)/)) {
 ## 🔗 Important Links
 
 - **Official Campus Pantry Website**: [dining.umd.edu/sustainability/campus-pantry](https://dining.umd.edu/sustainability/campus-pantry)
+- **Volunteer Signup**: [Google Calendar](https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ1J4IY7zztqV7rNzU_EzqeSCeLEvphSlgZFTY2z2UapAksBQoxu6E7m0xAYwuiHlDgD0cvQY0KR)
 - **Monetary Donations**: [UMD Giving Portal](https://giving.umd.edu/make-a-gift?kwodcpreselect=KDC-SA22292)
 - **Donation Registry**: [MyRegistry](https://www.myregistry.com/organization/umd-pantry-donation-list-college-park-md/3791289/giftlist)
-- **Contact**: campuspantry@umd.edu
-- **Instagram**: @UMDCampusPantry
+- **Contact**: campuspantry@umd.edu | 301-405-9579
+- **Instagram**: [@UMDCampusPantry](https://www.instagram.com/umdcampuspantry/)
 
 ## 📝 Hours Information
 
@@ -138,6 +159,27 @@ The pantry offers special items that are limited to **once per week per student*
 - Protein: Chicken Drumsticks (Halal), Whole Young Chicken, Catfish Nuggets
 
 *Note: These items are subject to change based on availability*
+
+## 📊 Analytics
+
+The chatbot includes built-in analytics tracking using browser localStorage. To view usage statistics:
+
+1. Open browser console (F12)
+2. Type: `viewAnalytics()`
+3. View metrics including:
+   - Total questions asked
+   - Questions by topic with percentages
+   - Top 3 most asked topics
+   - First and last visit timestamps
+
+See [ANALYTICS_GUIDE.md](ANALYTICS_GUIDE.md) for detailed usage instructions and demo strategies.
+
+## 🔒 Security Features
+
+- **XSS Prevention**: All user input is sanitized to prevent HTML/script injection
+- **Input Validation**: Character type checking and 500-character length limit
+- **Error Handling**: Try-catch blocks prevent crashes and provide user-friendly error messages
+- **Privacy-Friendly**: No personal data collected, analytics stored locally only
 
 ## ⚠️ Disclaimer
 
