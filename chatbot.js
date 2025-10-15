@@ -279,16 +279,16 @@ function getResponse(input) {
         // Special items (check before general food questions)
         if (question.match(/\b(special item|limited item|weekly limit|weekly restriction)\b/) ||
             question.match(/\bspecial\b.*\b(food|item|product)\b/) ||
-            (question.match(/\b(milk|protein|chicken|halal|vegetable oil|peanut butter|juice|corn flour)\b/) &&
-             question.match(/\b(available|get|limit|allowed|restriction)\b/))) {
+            question.match(/\b(milk|almond milk|coconut milk|vegetable oil|peanut butter|juice|corn flour)\b/) ||
+            question.match(/\b(chicken|halal|protein|fish|catfish|drumstick)\b/)) {
             Analytics.track('specialItems');
             return RESPONSES.specialItems();
         }
 
-        // What food is currently available (specific to TODAY's items)
+        // What food is currently available (specific to TODAY's items - general query)
         if (question.match(/\bwhat\b.*\b(food|item)\b.*\b(available|there|have|stock|today)\b/) ||
             question.match(/\b(current|today).*(food|item|stock|inventory)\b/) ||
-            question.match(/\b(chicken|protein|meat|fish|hala|eggs|egg)\b/)) {
+            question.match(/\b(all|everything|anything).*(available|have|stock)\b/)) {
             Analytics.track('foodAvailability');
             return `🍎 <b>Food Availability:</b><br><br>
             To see what food items are currently available at the pantry, please check our Instagram for daily updates!<br><br>
