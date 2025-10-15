@@ -297,7 +297,7 @@ function getResponse(input) {
         }
 
         // Hours (prioritize time-related queries)
-        if (question.match(/\b(hour|hours|when|time|schedule|open|close|opening|closing)\b/) &&
+        if (question.match(/\b(hour|hours|when|time|schedule|open|close|opening|closing|come|can i come)\b/) &&
             !question.match(/\bhow many hours\b/)) {  // Avoid matching "how many hours per week" for employment
             Analytics.track('hours');
             return RESPONSES.hours();
