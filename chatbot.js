@@ -37,7 +37,7 @@ const PANTRY_DATA = {
             "Juice",
             "Peanut Butter",
             "Corn Flour",
-            "Protein: Chicken Drumsticks (Halal), Whole Young Chicken, Catfish Nuggets"
+            "Protein: Chicken Drumsticks (Halal), Whole Young Chicken"
         ],
         note: "These items are subject to change based on availability"
     },
@@ -282,7 +282,7 @@ function getResponse(input) {
         if (question.match(/\b(special item|limited item|weekly limit|weekly restriction)\b/) ||
             question.match(/\bspecial\b.*\b(food|item|product|foods|items|products)\b/) ||
             question.match(/\b(milk|almond milk|coconut milk|vegetable oil|peanut butter|juice|corn flour)\b/) ||
-            question.match(/\b(chicken|halal|protein|fish|catfish|drumstick)\b/)) {
+            question.match(/\b(chicken|halal|protein|drumstick)\b/)) {
             Analytics.track('specialItems');
             return RESPONSES.specialItems();
         }
